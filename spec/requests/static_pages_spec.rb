@@ -9,10 +9,14 @@ describe "Static pages" do
       visit '/static_pages/home'
       page.should have_selector('h1',:text => 'Home')
     end
+    it "deberia tener el titulo base" do
+      visit 'static_pages/home'
+      page.should have_selector('title', :text => "Ruby on Rails Tutorial Sample App")
+    end
 
-    it "deberia tener el titulo correcto" do
+    it "deberia tener el titulo personalizado" do
       visit '/static_pages/home'
-      page.should have_selector('title', :text => "#{base_title} | Home")
+      page.should have_selector('title', :text => '| Home')
     end
   end
 
